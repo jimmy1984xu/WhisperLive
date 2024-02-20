@@ -205,6 +205,7 @@ class Client:
         message = message["segments"]
         text = []
         n_segments = len(message)
+        unconfirm = message["unconfirm"]
 
         if n_segments:
             for i, seg in enumerate(message):
@@ -231,6 +232,7 @@ class Client:
             os.system("clear")
         for element in word_list:
             print(element)
+        print("unconfirm:", unconfirm)
 
     def on_error(self, ws, error):
         print(f"[ERROR] WebSocket Error: {error}")

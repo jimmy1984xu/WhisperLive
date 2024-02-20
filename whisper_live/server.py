@@ -697,6 +697,7 @@ class ServeClientFasterWhisper(ServeClientBase):
                         # detect language again
                         continue
 
+                last_segment = None
                 if len(result):
                     self.t_start = None
                     last_segment = self.update_segments(result, duration)
@@ -726,7 +727,8 @@ class ServeClientFasterWhisper(ServeClientBase):
                     self.websocket.send(
                         json.dumps({
                             "uid": self.client_uid,
-                            "segments": segments
+                            "segments": segments,
+                            "unconfirm": last_segment,
                         })
                     )
                 except Exception as e:
