@@ -704,8 +704,8 @@ class ServeClientFasterWhisper(ServeClientBase):
                         segments = self.transcript
                     else:
                         segments = self.transcript[-self.send_last_n_segments:]
-                    if last_segment is not None:
-                        segments = segments + [last_segment]                    
+                    # if last_segment is not None:
+                    #     segments = segments + [last_segment]
                 else:
                     # show previous output if there is pause i.e. no output from whisper
                     segments = []
